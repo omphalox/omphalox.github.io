@@ -1,126 +1,46 @@
-<!-- made by
-         ___    ____  __________
-        /   |  / __ \/_  __/  _/
-       / /| | / /_/ / / /  / /
-      / ___ |/ _, _/ / / _/ /
-     /_/  |_/_/ |_| /_/ /___/
-  _ __________________________ _
- (_\                          /_)
-   \'.__                  __.'/
-    '.__'.__          __.'__.'
-        '.__'.__  __.'__.'
-            '.__||__.'
- -->
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
-    <head lang="en">
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>gear up</title>
-        <style>
-            @media (prefers-color-scheme: dark){
-                body {color:#fff;background:#000}
-                a:link {color:#cdf}
-                a:hover, a:visited:hover {color:#def}
-                a:visited {color:#dcf}
-            }
-            body{
-                margin:auto;
-                max-width:40%;
-                text-align:justify;
-/*                 font:20px ariel; */
-            }
-            h1,h2,h3,p {
-                line-height:1.2;
-            }
-            table {
-                border:1px solid white;
-                border-collapse: collapse;
-                width: 100%;
-            }
-            th,td {
-                border:1px solid white;
-            }
-            @media print{
-                body{
-                    max-width:none
-                }
-            }
-        </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <title>TexLock</title>
+        <link rel="stylesheet" href="style.css">
     </head>
+
     <body>
-        <table>
-            <tr>
-                <th><a href="">home</a></th>
-                <th><a href="">next link</a></th>
-            </tr>
-        </table>
-        <hr>
-        <table>
-            <tr>
-                <th>#</th>
-                <th>title</th>
-                <th>Version</th>
-                <th>Platform</th>
-                <th>Link</th>
-            </tr>
-            <tr>
-                <th>1</th>
-                <td>Telegram</td>
-                <td>v3.6.1</td>
-                <td>Linux</td>
-                <td> <a href="">t-setup</a> </td>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Tor-Browser</td>
-                    <td>???</td>
-                    <td>Linux</td>
-                    <td> <a href="">tor</a> </td>
-                </tr>
-            </table>
-        <hr>
-        <p>Gear Up Olympians, for these are the <i>Software That Rock</i></p>
-        <p>C and Python are the tools Deities use.</p>
-        <p>Suckless is the style Deities choose.</p>
-        <hr>
-        <h3>Projects</h3>
-        <p>Here's a list of some projects that are being developed ATM.</p>
-        <ul>
-            <li>pass (text, file, enc)</li
-            <ul><li>API-like (for TUI wrappers)</li></ul>
-            <li>an actually decent dictionary</li>
-            <ul><li>hash-table to store and access definitions</li><li>update/add/remove sections (with hash-table auto sort)</li></ul>
-            <li>text-based web browser</li>
-            <ul><li>use "suckless tabbed" for tabbing.</li><li>support for .onion / i2p</li><li>support for images (ueberzug perhaps?)</li></ul>
-            <li>fetch</li>
-            <ul><li>cross-platform</li><li>no need for image support, ascii art is enough</li><li>neofetch-like, more costumizable</li></ul>
-            <li>text-based torrent</li>
-            <ul><li>TUI wrapper</li><li>lookup "transmission"</li></ul>
-            <li>database</li>
-            <ul><li>database system</li><li>nosql</li><li>collisionless hashing</li><li>Godel</li></ul>
-            <li>text-based DM (display manager)</li>
-            <ul><li>TUI</li><li>option to exit the DM at will (before logging-in of course) and go to the default text entry</li><li>lockscreen</ul>
-        </ul>
-        <hr>
-        <h3>Suckless configs</h3>
-        <p>download links are below (duh)</p>
-        <ul>
-            <li>pass (text, file, enc)</li>
-            <ul><li>API-like (for TUI wrappers)</li></ul>
-        </ul>
-        <hr>
-        <h3>Void linux config</h3>
-        <ul>
-            <li>pass (text, file, enc)</li>
-            <ul><li>API-like (for TUI wrappers)</li></ul>
-        </ul>
-        <hr>
-        <table>
-            <tr>
-                <th><a href="">home</a></th>
-                <th><a href="">next link</a></th>
-            </tr>
-        </table>
+        <div class="cipher-card">
+            <h1>TexLock</h1>
+            <div class="footer-note"> ⚡ Send & Receive private messages with AES-256-GCM | secure & authenticated encryption 🔐 </div>
+            <hr>
+
+            <!-- Input textbox (plaintext / ciphertext) -->
+            <div class="field-group">
+                <label>📄 INPUT / CIPHER TEXT</label>
+                <textarea id="inputText" class="text-input" rows="2" placeholder="Type text to encrypt or paste encrypted string to decrypt..."></textarea>
+            </div>
+
+            <!-- Passphrase field -->
+            <div class="field-group">
+                <label>🗝️ PASSPHRASE (AES-256)</label>
+                <input type="password" id="passphrase" class="pass-input" placeholder="Your secret passphrase" autocomplete="off">
+            </div>
+
+            <!-- Action buttons row: Encrypt / Decrypt / Copy / Clear -->
+            <div class="button-row">
+                <button id="encryptBtn" class="btn btn-primary">🔒 Encrypt</button>
+                <button id="decryptBtn" class="btn btn-secondary">🔓 Decrypt</button>
+                <button id="copyBtn" class="btn btn-outline">📋 Copy</button>
+                <button id="clearBtn" class="btn btn-clear">🗑️ Clear fields</button>
+            </div>
+
+            <!-- Output textbox -->
+            <div class="output-area">
+                <label>📎 OUTPUT</label>
+                <textarea id="outputText" class="output-box" rows="3" readonly placeholder="Result will appear here..."></textarea>
+            </div>
+        </div>
+        <script src="script.js"></script>
     </body>
+
 </html>
