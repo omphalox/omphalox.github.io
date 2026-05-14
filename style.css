@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: linear-gradient(145deg, #e9f0f5 0%, #d9e2ec 100%);
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  
+  /* card container – responsive, centered, elegant */
+  .cipher-card {
+    max-width: 750px;
+    width: 100%;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(2px);
+    border-radius: 2.5rem;
+    box-shadow: 0 25px 45px -12px rgba(0,0,0,0.25), 0 8px 18px rgba(0,0,0,0.05);
+    padding: 2rem 1.8rem 2.2rem 1.8rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.5);
+  }
+  
+  /* responsive padding for smaller screens */
+  @media (max-width: 550px) {
+    .cipher-card {
+      padding: 1.5rem 1.2rem;
+    }
+  }
+  
+  h1 {
+    font-size: 2.3rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #1F2B3C, #2C3E50);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 1.8rem;
+    text-align: center;
+    word-break: keep-all;
+  }
+  
+  /* input group styling */
+  .field-group {
+    margin-bottom: 1.7rem;
+  }
+  
+  label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #2c3e4e;
+    margin-bottom: 0.4rem;
+  }
+  
+  .text-input, .pass-input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    background-color: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 1.4rem;
+    transition: all 0.2s;
+    outline: none;
+    color: #0f172a;
+    resize: vertical;
+  }
+  
+  .text-input:focus, .pass-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+  }
+  
+  /* button row — all inline, responsive wrap */
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 1.4rem 0 1.8rem 0;
+    justify-content: center;
+  }
+  
+  .btn {
+    flex: 1 0 auto;
+    min-width: 100px;
+    background: white;
+    border: none;
+    padding: 0.7rem 0.9rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: inherit;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #f1f5f9;
+    color: #1e293b;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .btn-primary {
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .btn-primary:hover {
+    background: #0f2c44;
+    transform: translateY(-1px);
+  }
+  
+  .btn-secondary {
+    background: #2c5f2d;
+    color: white;
+    border: none;
+  }
+  
+  .btn-secondary:hover {
+    background: #1f4520;
+    transform: translateY(-1px);
+  }
+  
+  .btn-outline {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+  }
+  
+  .btn-outline:hover {
+    background: #eef2ff;
+    border-color: #3b82f6;
+  }
+  
+  .btn-clear {
+    background: #f1f5f9;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+  }
+  
+  .btn-clear:hover {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+  
+  @media (max-width: 550px) {
+    .btn {
+      min-width: 70px;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* output area */
+  .output-area {
+    margin-top: 0.4rem;
+  }
+  
+  .output-box {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    background: #fefcf5;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 1.4rem;
+    resize: vertical;
+    word-break: break-word;
+    color: #0f172a;
+    min-height: 110px;
+  }
+  
+  .error-message {
+    color: #b91c1c;
+    font-weight: bold;
+    background: #fff0f0;
+    border-left: 4px solid #dc2626;
+  }
+  
+  hr {
+    margin: 0.8rem 0 1rem;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #cbd5e1, transparent);
+  }
+  
+  .footer-note {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #5c6f87;
+    margin-top: 1.2rem;
+  }
+  
+  /* subtle animations */
+  .btn:active {
+    transform: scale(0.97);
+  }
